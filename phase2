@@ -1,0 +1,762 @@
+
+\documentclass[12pt,a4paper]{article}
+
+% ============================================================
+% PACKAGES
+% ============================================================
+
+\usepackage[
+    a4paper,
+    top=1.55cm,
+    bottom=1.35cm,
+    left=1.75cm,
+    right=1.75cm
+]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usepackage{ragged2e}
+
+% ============================================================
+% IMAGE HANDLING
+% ============================================================
+
+\newcommand{\safeimage}[2][]{%
+    \IfFileExists{#2}{%
+        \includegraphics[#1]{#2}%
+    }{%
+        \fbox{%
+            \parbox[c][1.5cm][c]{2.6cm}{%
+                \centering\scriptsize Image to add
+            }%
+        }%
+    }%
+}
+
+% ============================================================
+% COLORS
+% ============================================================
+
+\definecolor{GEUBlue}{RGB}{43,91,145}
+\definecolor{GEUBannerBlue}{RGB}{0,102,148}
+\definecolor{GEUYellow}{RGB}{255,201,38}
+\definecolor{InstructionGrey}{RGB}{125,125,125}
+
+% ============================================================
+% GENERAL SETTINGS
+% ============================================================
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\arraystretch}{1}
+
+% ============================================================
+% HEADER / FOOTER
+% ============================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{%
+    \fontsize{10.5}{12}\selectfont
+    B.TECH CSE,OSDBMS-V-2026-T219
+}
+
+\fancyhead[R]{%
+    \fontsize{10.5}{12}\selectfont
+    PHASE-II PROJECT PROGRESS
+}
+
+\fancyfoot[R]{%
+    \fontsize{10}{12}\selectfont
+    Page \thepage
+}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\headheight}{20pt}
+\setlength{\headsep}{0.65cm}
+\setlength{\footskip}{0.65cm}
+
+% ============================================================
+% BOTTOM YELLOW LINE
+% ============================================================
+
+\AddToShipoutPictureBG{%
+\begin{tikzpicture}[remember picture,overlay]
+    \fill[GEUYellow]
+    (current page.south west)
+    rectangle
+    ([yshift=0.14cm]current page.south east);
+\end{tikzpicture}
+}
+
+% ============================================================
+% CUSTOM COMMANDS
+% ============================================================
+
+\newcommand{\sectiontitle}[1]{%
+    {\color{GEUBlue}
+    \fontsize{18}{22}\selectfont #1}
+}
+
+\newcommand{\instruction}[1]{%
+    {\color{InstructionGrey}
+    \fontsize{10.5}{13}\selectfont #1}
+}
+
+\newcommand{\answerbox}[2]{%
+    \begin{tabularx}{\textwidth}{
+        |>{\raggedright\arraybackslash}X|}
+        \hline
+        \parbox[t][#1][t]{
+            \dimexpr\linewidth-12pt\relax
+        }{
+            \vspace{5pt}
+            \fontsize{11}{13}\selectfont #2
+        }\\
+        \hline
+    \end{tabularx}
+}
+
+% ============================================================
+% DOCUMENT
+% ============================================================
+
+\begin{document}
+
+% ============================================================
+% PAGE 1
+% PROJECT AND TEAM INFORMATION
+% ============================================================
+
+\vspace*{0.10cm}
+
+\safeimage[width=8.0cm]{geulogo.png}
+
+\vspace{0.70cm}
+
+\noindent
+\colorbox{GEUBannerBlue}{%
+\parbox{\dimexpr\textwidth-2\fboxsep\relax}{
+    \vspace{0.17cm}
+    {\color{GEUYellow}
+    \fontsize{16.5}{20}\selectfont
+    \bfseries
+    PROJECT AND TEAM INFORMATION}
+    \vspace{0.17cm}
+}}
+
+\vspace{0.80cm}
+
+% ============================================================
+% PROJECT TITLE
+% ============================================================
+
+\sectiontitle{Project Title}
+
+\vspace{0.05cm}
+
+\instruction{
+
+}
+
+\vspace{0.40cm}
+
+\answerbox{1.00cm}{
+CareGrid: A Centralized Multi-Hospital
+Resource Coordination Platform
+}
+
+\vspace{0.80cm}
+
+% ============================================================
+% TEAM INFORMATION
+% ============================================================
+
+\noindent
+\begin{tabularx}{\textwidth}{
+|>{\RaggedRight\arraybackslash}p{0.56\textwidth}
+|>{\RaggedRight\arraybackslash}X|}
+\hline
+
+\begin{minipage}[t]{\linewidth}
+\vspace{1.5mm}
+\textit{Team Name:}\\[-1mm]
+\textit{Team \#}
+\vspace{1.5mm}
+\end{minipage}
+&
+\begin{minipage}[t]{\linewidth}
+\vspace{1.5mm}
+\textit{Care Grid}
+\vspace{1.5mm}
+\end{minipage}
+\\
+\hline
+
+% ============================================================
+% MEMBER 1
+% ============================================================
+
+\begin{minipage}[t][5.00 cm][t]{\linewidth}
+\vspace{1.5mm}
+\textbf{Team member 1 (Team Lead)}\\[-1mm]
+\textit{}
+\vspace{2.0cm}
+\end{minipage}
+&
+\begin{minipage}[t][3.25cm][t]{\linewidth}
+\vspace{1.5mm}
+\textit{Singh, Mayank -- 240212146}\\
+\textit{mayanksingh24062006@gmail.com}
+
+\vspace{2mm}
+
+\safeimage[
+    width=3.0cm,
+    height=3.00cm,
+    keepaspectratio
+]{mayank.jpeg}
+
+\end{minipage}
+\\
+\hline
+
+% ============================================================
+% MEMBER 2
+% ============================================================
+
+\begin{minipage}[t][5.00cm][t]{\linewidth}
+\vspace{1.5mm}
+\textbf{Team member 2}\\[-1mm]
+\textit{}
+\vspace{2.0cm}
+\end{minipage}
+&
+\begin{minipage}[t][3.25cm][t]{\linewidth}
+\vspace{1.5mm}
+\textit{Negi, Akshita -- 240221861}\\
+\textit{akshitanegi0106@gmail.com}
+
+\vspace{2mm}
+
+\safeimage[
+    width=3.0cm,
+    height=3.5cm,
+    keepaspectratio
+]{akshita.jpeg}
+
+\end{minipage}
+\\
+\hline
+
+% ============================================================
+% MEMBER 3
+% ============================================================
+
+\begin{minipage}[t][5.00cm][t]{\linewidth}
+\vspace{1.5mm}
+\textbf{Team member 3}\\[-1mm]
+\textit{}
+\vspace{2.0cm}
+\end{minipage}
+&
+\begin{minipage}[t][3.25cm][t]{\linewidth}
+\vspace{1.5mm}
+\textit{Uniyal, Tanishtha -- 24022512}\\
+\textit{tanishthauniyal30@gmail.com}
+
+\vspace{0.5mm}
+
+\safeimage[
+    width=3.0cm,
+    height=3.3cm,
+    keepaspectratio
+]{tanishtha.jpeg}
+
+\end{minipage}
+\\
+\hline
+
+\end{tabularx}
+
+\newpage
+
+% ============================================================
+% PAGE 2
+% PHASE-II PROJECT PROGRESS DESCRIPTION
+% ============================================================
+
+\vspace*{0.15cm}
+
+\noindent
+\colorbox{GEUBannerBlue}{%
+\parbox{\dimexpr\textwidth-2\fboxsep\relax}{
+    \vspace{0.18cm}
+    {\color{GEUYellow}
+    \fontsize{17}{21}\selectfont
+    \bfseries
+    PHASE-II PROJECT PROGRESS DESCRIPTION (35 pts)}
+    \vspace{0.18cm}
+}}
+
+\vspace{0.70cm}
+
+% ============================================================
+% PROJECT ABSTRACT
+% ============================================================
+
+\sectiontitle{Project Abstract }
+
+\vspace{0.05cm}
+
+\instruction{
+
+}
+
+\vspace{0.12cm}
+
+\answerbox{4.60cm}{
+CareGrid is a centralized multi-hospital resource
+coordination platform designed to help users find
+suitable hospitals based on the availability of
+beds, doctors, medical equipment, and other
+facilities. Participating hospitals can maintain
+their resource information in a shared system,
+while the Central Health Hub processes requests
+and retrieves matching information from the
+database.
+
+The project also focuses on preventing conflicts
+when multiple requests are made for limited
+resources, such as the last available ICU bed.
+
+In the current phase, our work has focused on
+the Python backend and relational MySQL database.
+The user-facing interface and complete end-to-end
+integration are planned for the next stage.
+}
+
+\vspace{0.70cm}
+
+% ============================================================
+% UPDATED PROJECT APPROACH
+% ============================================================
+
+\sectiontitle{
+Updated Project Approach and Architecture 
+}
+
+\vspace{0.05cm}
+
+\instruction{
+
+}
+
+\vspace{0.25cm}
+
+\answerbox{6cm}{
+The system follows a centralized architecture in
+which hospital and resource records are stored in
+MySQL and accessed through Python backend
+request-processing modules.
+
+
+The backend processes user requests, checks
+hospital resource availability, and retrieves
+information from MySQL through a CLI.
+
+We have created relational tables to manage
+hospital, doctor, resource, and appointment
+records using SQL queries.
+
+We plan to implement OS synchronization and
+database transactions to prevent multiple
+users from booking the same resource.
+
+The next step is to develop the frontend and
+connect it with the Python backend and MySQL
+database using Flask.
+}
+
+\newpage
+
+% ============================================================
+% PAGE 3
+% TASKS COMPLETED, CHALLENGES, TASKS PENDING
+% ============================================================
+
+\vspace*{0.20cm}
+
+% ============================================================
+% TASKS COMPLETED
+% ============================================================
+
+\sectiontitle{Tasks Completed }
+
+\vspace{0.05cm}
+
+\instruction{
+
+}
+
+\vspace{0.20cm}
+
+\renewcommand{\arraystretch}{1.12}
+
+\begin{tabularx}{\textwidth}{
+|>{\RaggedRight\arraybackslash}p{0.67\textwidth}
+|>{\RaggedRight\arraybackslash}X|}
+\hline
+
+\textbf{Task Completed} &
+\textbf{Team Member}\\
+\hline
+
+\parbox[t][2.45cm][t]{\linewidth}{
+
+Developed a relational MySQL database to manage
+hospital and resource information. Implemented
+SQL queries for data insertion, updating, and
+retrieval, along with Python--MySQL connectivity
+for efficient data management.
+}
+&
+\parbox[t][2.45cm][t]{\linewidth}{
+Tanishtha Uniyal
+}\\
+\hline
+
+\parbox[t][2.45cm][t]{\linewidth}{
+Developed a modular Python backend with CLI-based
+request processing, requirement-based hospital
+discovery, dynamic resource availability filtering,
+and centralized data retrieval through the
+Central Health Hub.
+}
+&
+\parbox[t][2.45cm][t]{\linewidth}{
+Akshita Negi
+}\\
+\hline
+
+\parbox[t][2.45cm][t]{\linewidth}{
+Developed the backend resource-request and
+allocation workflow, incorporating resource
+availability validation and the foundation
+for concurrent request processing and
+OS-level synchronization.
+}
+&
+\parbox[t][2.45cm][t]{\linewidth}{
+Mayank Singh
+}\\
+\hline
+
+\end{tabularx}
+
+\renewcommand{\arraystretch}{1}
+
+\vspace{0.65cm}
+
+% ============================================================
+% CHALLENGES / ROADBLOCKS
+% ============================================================
+
+\sectiontitle{Challenges/Roadblocks }
+
+\vspace{0.05cm}
+
+\instruction{
+
+}
+
+\vspace{0.25
+cm}
+
+\answerbox{4.75cm}{
+A main challenge is maintaining accurate resource
+availability when hospitals update their records
+and multiple users request the same limited
+resource.
+
+The proposed solution is to recheck availability
+during allocation and use synchronization together
+with database transactions.
+
+Another challenge is keeping data consistent
+across related tables while processing requests.
+We are addressing this through relational
+database design and SQL operations.
+
+The next challenge will be connecting the existing
+backend to a responsive frontend and validating
+the complete request-to-confirmation workflow.
+
+Functional and concurrent request testing will
+be performed using sample data before the system
+is considered complete.
+}
+
+\vspace{0.65cm}
+
+% ============================================================
+% TASKS PENDING - UPDATED
+% ============================================================
+
+\sectiontitle{Tasks Pending }
+
+\vspace{0.70cm}
+
+\instruction{
+
+}
+
+\vspace{0.20cm}
+
+\begin{tabularx}{\textwidth}{
+|>{\raggedright\arraybackslash}X
+|>{\raggedright\arraybackslash}X|}
+\hline
+
+\textbf{Task Pending} &
+\textbf{Team Member} \\
+\hline
+
+Design and implement a responsive, user-centric
+frontend interface with seamless backend integration,
+enabling dynamic hospital resource discovery,
+real-time availability visualization, and
+efficient request management.
+&
+Akshita Negi and Mayank Singh \\
+\hline
+
+Establish end-to-end MySQL database integration,
+including SQL transaction management, persistent
+data synchronization, and database integrity
+validation.
+&
+Tanishtha Uniyal \\
+\hline
+
+\end{tabularx}
+
+\newpage
+
+% ============================================================
+% PAGE 4
+% PROJECT OUTCOME AND PROGRESS OVERVIEW
+% ============================================================
+
+\vspace*{0.30cm}
+
+% ============================================================
+% PROJECT OUTCOME
+% ============================================================
+
+\sectiontitle{Project Outcome/Deliverables }
+
+\vspace{0.05cm}
+
+\instruction{
+
+}
+
+\vspace{0.35cm}
+
+\answerbox{3.90cm}{
+
+The expected outcome is a centralized CareGrid
+platform for hospital resource discovery,
+request processing, and availability management.
+
+The system will maintain hospital, doctor,
+resource, and appointment records in MySQL.
+
+The Python backend and database operations
+are completed. Remaining work includes frontend
+development, system integration, and concurrent
+resource allocation testing.
+
+The project will use sample data for
+academic demonstration.
+}
+
+\vspace{0.75cm}
+
+% ============================================================
+% PROGRESS OVERVIEW
+% ============================================================
+
+\sectiontitle{Progress Overview }
+
+\vspace{0.05cm}
+
+\instruction{
+
+}
+
+\vspace{0.25cm}
+
+\answerbox{5.10cm}{
+
+The Python backend and MySQL database have been
+developed and are functional through a CLI-based
+interface in VS Code.
+
+The system supports user requirement processing,
+hospital resource discovery, and database
+storage and retrieval operations.
+
+The next phase involves responsive frontend
+development, Flask-based system integration,
+and database transaction management.
+
+OS synchronization, concurrent resource allocation,
+and end-to-end testing are yet to be completed.
+}
+
+\newpage
+
+% ============================================================
+% PAGE 5
+% CODEBASE, TESTING, DELIVERABLES
+% ============================================================
+
+\vspace*{0.20cm}
+
+% ============================================================
+% CODEBASE INFORMATION
+% ============================================================
+
+\sectiontitle{Codebase Information }
+
+\vspace{0.05cm}
+
+\instruction{
+
+}
+
+\vspace{0.20cm}
+
+\answerbox{4.20cm}{
+Repository: https://github.com/mayank8010/T219-5-th-SEM.git
+
+Branch: main
+
+Key commits : Python Backend, MySQL Database, centralized Health Hub, Resource coordinator, CLI-Based Request Processing.
+
+Key Development Milestones:
+
+Set up the Python backend to handle hospital resource requests.
+Created hospital and resource tables in MySQL and linked them with Python.
+Added a search feature to find hospitals based on required facilities and their availability.
+Built a terminal-based interface to enter requests and view matching hospital details.
+
+}
+
+\vspace{0.65cm}
+
+% ============================================================
+% TESTING AND VALIDATION STATUS - UPDATED
+% ONLY THREE PASS TESTS
+% ============================================================
+
+\sectiontitle{Testing and Validation Status }
+
+\vspace{0.10cm}
+
+\instruction{
+
+}
+
+\vspace{1.00cm}
+
+\begin{tabularx}{\textwidth}{
+|>{\raggedright\arraybackslash}p{0.34\textwidth}
+|>{\raggedright\arraybackslash}p{0.20\textwidth}
+|>{\raggedright\arraybackslash}X|}
+\hline
+
+\textbf{Test Type} &
+\textbf{Status (Pass/Fail)} &
+\textbf{Notes} \\
+\hline
+
+
+Python and MySQL Connection &
+Pass &
+Checked that Python connects to MySQL
+and runs SQL queries without errors. \\
+\hline
+
+Database Operations &
+Pass &
+Tested record insertion and retrieval through the terminal.. \\
+\hline
+
+Hospital Search &
+Pass &
+Tested hospital searches and verified matching resource availability. \\
+\hline
+
+Resource Allocation Logic Test &
+Pass &
+Verified resource availability before allocation. \\
+\hline
+\end{tabularx}
+
+\vspace{0.90cm}
+
+% ============================================================
+% DELIVERABLES PROGRESS
+% ============================================================
+
+
+\sectiontitle{Deliverables Progress}
+
+\vspace{0.20cm}
+
+\instruction{
+}
+
+\vspace{0.25cm}
+
+\answerbox{4.20cm}{
+
+MySQL Database Design \& Implementation:
+{Completed}
+
+Python Backend Development:
+{Completed}
+
+Central Health Hub \& Resource Discovery:
+{Completed}
+
+CLI-Based Request Processing:
+{Completed}
+
+Resource Allocation \& OS Synchronization:
+{In Progress}
+
+Frontend Development \& System Integration:
+{Pending}
+
+
+
+Final System Testing \& Documentation:
+{In Progress}
+
+}
+
+\end{document}
